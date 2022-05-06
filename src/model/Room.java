@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Room {
     private int id;
@@ -60,8 +60,8 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room: " +
-                "," + id +
+        return
+                  id +
                 "," + nameRoom +
                 "," + status +
                 "," + priceRoom +

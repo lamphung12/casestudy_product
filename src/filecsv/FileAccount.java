@@ -1,6 +1,6 @@
-package File;
+package filecsv;
 
-import Model.Account;
+import model.Account;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,11 +28,11 @@ public class FileAccount {
 
     public static void writeToFile(List<Account>list) throws FileNotFoundException {
         File file = new File("acc.csv");
-        PrintWriter pr = new PrintWriter(file);
-        pr.print("id,userName,passWord,email,numberPhone");
+        PrintWriter printWriter = new PrintWriter(file);
+        printWriter.print("id,userName,passWord,email,numberPhone\n");
         for (int i = 0; i <list.size() ; i++) {
-            System.out.println(list.get(i));
+            printWriter.print(list.get(i));
         }
-         pr.close();
+        printWriter.close();
     }
 }

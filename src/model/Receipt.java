@@ -1,21 +1,32 @@
-package Model;
+package model;
 
 public class Receipt {
+    private int id;
     private int startTime;
     private int endTime;
     private String rentalAgentName;
     private Room room;
     private int totalRent;
 
-    public Receipt() {
-    }
 
-    public Receipt(int startTime, int endTime, String rentalAgentName, Room room, int totalRent) {
+    public Receipt(int id,int startTime, int endTime, String rentalAgentName, Room room) {
+        this.id=id;
         this.startTime = startTime;
         this.endTime = endTime;
         this.rentalAgentName = rentalAgentName;
         this.room = room;
-        this.totalRent = totalRent;
+        this.totalRent=(endTime-startTime)*room.getPriceRoom();
+    }
+
+    public Receipt() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getStartTime() {
@@ -60,7 +71,7 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return "Receipt: " +
+        return "Receipt: " +id+
                 "," + startTime +
                 "," + endTime +
                 "," + rentalAgentName +

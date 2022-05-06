@@ -1,6 +1,6 @@
-package Manager;
+package manager;
 
-import Model.Account;
+import model.Account;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ public class managerAccount implements General<Account>{
     public static Account currentUser = null;
 
     public managerAccount() {
+
     }
 
     public List<Account> getAccountList() {
