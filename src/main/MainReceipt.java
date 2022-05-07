@@ -60,6 +60,7 @@ public class MainReceipt {
                 case 4:
                     System.out.println("Nhap id hoa don can sua");
                     int idd= scanner.nextInt();
+                    System.out.println("");
 
 
             }
