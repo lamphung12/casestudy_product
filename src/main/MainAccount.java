@@ -3,6 +3,7 @@ package main;
 import manager.managerAccount;
 import model.Account;
 import filecsv.FileAccount;
+import regex.Validate;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class MainAccount {
     public static void main(String[] args) throws IOException {
         Scanner scanner =new Scanner(System.in);
         managerAccount managerAccount= new managerAccount();
+        Validate validate= new Validate();
         int choice = -1;
         while (choice!=0){
             System.out.println("Menu");
@@ -66,13 +68,18 @@ public class MainAccount {
                                               int id = scanner.nextInt();
                                               scanner.nextLine();
                                               System.out.println("Nhap userName ");
-                                              String userName = scanner.nextLine();
+                                              String userName = validate.checkUserName();
+
                                               System.out.println("Nhap passWord");
-                                              String passWord = scanner.nextLine();
+                                              String passWord = validate.checkPassword();
+
                                               System.out.println("Nhap vao Email");
-                                              String email = scanner.nextLine();
+                                              String email = validate.checkEmail();
+
+
                                               System.out.println("Nhap so dien thoai");
-                                              int number = scanner.nextInt();
+                                              int number = validate.checkPhone();
+
                                               Account acc = new Account(id, userName, passWord, email, number);
                                               managerAccount.add(acc);
                                               FileAccount.writeToFile(managerAccount.getAccountList());
@@ -94,7 +101,6 @@ public class MainAccount {
                                               int numberSua = scanner.nextInt();
                                               Account accSua = new Account(idSua, userNameSua, passWordSua, emailSua, numberSua);
                                               managerAccount.edit(id1, accSua);
-
                                                 break;
                                            case 3:
                                               System.out.println("Xoa tai khoan");
