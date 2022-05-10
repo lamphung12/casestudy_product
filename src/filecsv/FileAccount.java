@@ -2,16 +2,14 @@ package filecsv;
 
 import model.Account;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class FileAccount {
     public static List<Account> readFromFile() throws FileNotFoundException {
-        File file = new File("acc.csv");
+        File file = new File("/Users/macpro/IdeaProjects/CastudyModul2/acc1.csv");
         List<Account>accountList =new ArrayList<>();
         Scanner sc= new Scanner(file);
         sc.nextLine();
@@ -26,13 +24,16 @@ public class FileAccount {
        return accountList;
     }
 
-    public static void writeToFile(List<Account>list) throws FileNotFoundException {
-        File file = new File("acc.csv");
+    public static void writeToFile(List<Account>list) throws IOException {
+        File file = new File("/Users/macpro/IdeaProjects/CastudyModul2/acc1.csv");
+
         PrintWriter printWriter = new PrintWriter(file);
+        BufferedWriter bf = new BufferedWriter(printWriter);
         printWriter.print("id,userName,passWord,email,numberPhone\n");
         for (int i = 0; i <list.size() ; i++) {
-            printWriter.print(list.get(i));
+            printWriter.println(list.get(i));
         }
         printWriter.close();
+        bf.close();
     }
 }

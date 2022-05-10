@@ -5,6 +5,8 @@ import model.Receipt;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class managerReceipt implements General<Receipt>{
@@ -64,6 +66,16 @@ public class managerReceipt implements General<Receipt>{
           }
      }
      return -1;
-
     }
+     public void sapXep(){
+      Collections.sort(receiptList, new Comparator<Receipt>() {
+       @Override
+       public int compare(Receipt o1, Receipt o2) {
+        return o1.getTotalRent()- o2.getTotalRent();
+       }
+      });
+      for (int i = 0; i < receiptList.size() ; i++) {
+       System.out.println(receiptList.get(i));
+      }
+     }
 }

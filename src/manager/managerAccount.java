@@ -1,7 +1,9 @@
 package manager;
 
+import filecsv.FileAccount;
 import model.Account;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,8 @@ public class managerAccount implements General<Account>{
     private List<Account>accountList = new ArrayList<>();
     public static Account currentUser = null;
 
-    public managerAccount() {
+    public managerAccount() throws FileNotFoundException {
+        accountList= FileAccount.readFromFile();
 
     }
 

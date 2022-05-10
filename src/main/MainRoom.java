@@ -24,8 +24,9 @@ public class MainRoom {
                     "5.Đoi trang thai, chuyen tu con phong sang het phong\n" +
                     "6.Ghi vao file\n" +
                     "7.Doc tu file\n" +
-                    "8.Tim theo so phong\n"+
-                    "9.Thoat\n"
+                    "8.Tim theo so phong ngu\n"+
+                    "9.In ra cac phong con trong \n"+
+                    "10.Thoat\n"
             );
             choice= sc.nextInt();
 
@@ -53,7 +54,7 @@ public class MainRoom {
                 case 3:
                     System.out.println("Nhap id phong can tim kiem");
                     int id1 = sc.nextInt();
-                    managerRoom.findIndexById(id1);
+                    System.out.println(managerRoom.findIndexById(id1));
                     break;
 
                 case 4:
@@ -61,10 +62,12 @@ public class MainRoom {
                     int id2= sc.nextInt();
                     System.out.println("Nhap id phong can sua");
                     int idSua = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Nhap ten phong can sua");
                     String nameSua = sc.nextLine();
                     System.out.println("Nhap trang thai phong sua");
                     String statusSua = sc.nextLine();
+                    sc.nextLine();
                     System.out.println("Nhap gia phong");
                     int giaSua = sc.nextInt();
                     System.out.println("Nhap so phong ngu");
@@ -83,11 +86,20 @@ public class MainRoom {
                     break;
 
                 case 7:
-
+                    FileRoom.readFromFile();
                     break;
 
                 case 8:
-                    System.exit(0);
+                    System.out.println("Nhap so phong ngu can tim kiem");
+                    int numberRoom = sc.nextInt();
+                    managerRoom.displayNumberBedRoom(numberRoom);
+                    break;
+
+                case 9:
+//                    System.out.println("Nhap trang thai cua phong");
+//                    String con= sc.nextLine();
+//                    managerRoom.printRoomCon(con);
+//                    break;
 
             }
 

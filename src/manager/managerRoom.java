@@ -85,5 +85,12 @@ public class managerRoom implements General<Room> {
         }
      }
 
+     public void printRoomCon(String  c){
+         for (int i = 0; i <roomList.size() ; i++) {
+             if (roomList.get(i).getStatus().contains("c")){
+                 System.out.println(roomList.get(i));
+             }
+         }
+     }
 
 }

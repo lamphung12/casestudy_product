@@ -29,17 +29,20 @@ public class MainAccount {
                     String pass = scanner.nextLine();
                     if(managerAccount.login(usn,pass)==1){
                          choice =-1;
-                         while (choice!=0){
-                             System.out.println("Menu Customer");
-                             System.out.println("0.Log out");
-                             System.out.println("1:Xem thong tin tai khoan");
-                             System.out.println("2.Doi pass");
+                         do {
                              if(managerAccount.currentUser.getUserName().equals("Admin")){
+                                 System.out.println("Menu Customer");
+                                 System.out.println("1:Xem thong tin tai khoan");
+                                 System.out.println("2.Doi pass");
                                  System.out.println("3.Them sua xoa tai khoan");
+                                 System.out.println("4:Quay ve dang nhap");
+                             }else{
+                                 MainReceipt.menu();
                              }
 
                              System.out.println("Nhap vao lua chon");
                                int choice1 = scanner.nextInt();
+                               if (choice1 == 4) break;
                              switch (choice1){
                                  case 1:
                                      managerAccount.display();
@@ -99,10 +102,11 @@ public class MainAccount {
                                               int idXoa = scanner.nextInt();
                                               managerAccount.delete(idXoa);
                                                 break;
-                                 }
+                                            case 4:
 
+                                 }
                              }
-                         }
+                         }while (choice!=0);
                     }
 
                     break;
@@ -130,7 +134,10 @@ public class MainAccount {
                     System.exit(0);
                     System.out.println("Bye");
 
+
             }
+
+
             System.out.println("---------------------------------------------");
         }
 

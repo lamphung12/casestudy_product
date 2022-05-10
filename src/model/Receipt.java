@@ -72,10 +72,10 @@ public class Receipt {
     @Override
     public String toString() {
         return "Receipt: " +id+
-                "," + startTime +
-                "," + endTime +
-                "," + rentalAgentName +
-                "," + room.getId() +
-                "," + totalRent;
+                "," + "startTime"+ startTime +
+                "," + "endTime"+endTime +
+                "," + "rentalAgentName"+ rentalAgentName +
+                "," + "idRoom" +room.getId() +
+                "," + "totalPrice" +totalRent;
     }
 }
