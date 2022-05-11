@@ -6,6 +6,7 @@ import filecsv.FileAccount;
 import regex.Validate;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainAccount {
@@ -19,7 +20,20 @@ public class MainAccount {
             System.out.println("1.Dang nhap");
             System.out.println("2.Dang ky");
             System.out.println("Moi nhap lua chon");
-            choice= scanner.nextInt();
+
+                boolean check2 = false;
+                while (!check2) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 0 || choice > 4) throw new Exception();
+                        check2 = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("Vui long nhap so");
+                        scanner.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("Chỉ được nhập số từ 0 - 2");
+                    }
+                }
 
             switch (choice){
                 case 1:
@@ -44,7 +58,22 @@ public class MainAccount {
 
                              System.out.println("Nhap vao lua chon");
                                int choice1 = scanner.nextInt();
-                               if (choice1 == 4) break;
+
+                             boolean check0 = false;
+                             while (!check0) {
+                                 try {
+//                                   choice1 = scanner.nextInt();
+                                     if (choice1 < 0 || choice1 > 4) throw new Exception();
+                                     check0 = true;
+                                 } catch (InputMismatchException e) {
+                                     System.out.println("Vui long nhap so");
+                                     scanner.nextLine();
+                                 } catch (Exception e) {
+                                     System.out.println("Chỉ được nhập số từ 0 - 4");
+                                 }
+                             }
+
+//                               if (choice1 == 4) break;
                              switch (choice1){
                                  case 1:
                                      managerAccount.display();
@@ -63,6 +92,7 @@ public class MainAccount {
                                      int choice2=scanner.nextInt();
                                         switch (choice2) {
                                            case 1:
+
                                               System.out.println("Nhap tai khoan can them");
                                               System.out.println("Nhap vao id");
                                               int id = scanner.nextInt();
@@ -132,21 +162,18 @@ public class MainAccount {
 
                     Account acc= new Account(id,userName,passWord,email,number);
                     managerAccount.add(acc);
-
                     FileAccount.writeToFile(managerAccount.getAccountList());
-
                     break;
                 case 3:
                     System.exit(0);
                     System.out.println("Bye");
 
-
             }
 
-
             System.out.println("---------------------------------------------");
+           }
+
         }
 
-
     }
-}
+

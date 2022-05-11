@@ -8,6 +8,7 @@ import model.Room;
 
 import java.io.FileNotFoundException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainReceipt {
@@ -15,7 +16,7 @@ public class MainReceipt {
         managerReceipt managerReceipt = new managerReceipt();
         managerRoom managerRoom= new managerRoom();
         Scanner scanner = new Scanner(System.in);
-        Receipt receipt = new Receipt();
+
 
         int choice = -1;
         while (choice!=0) {
@@ -31,6 +32,22 @@ public class MainReceipt {
                     "8.Sap xep hoa don theo gia tu cao den thap\n" +
                     "9.Thoat\n"
             );
+
+                boolean check2 = false;
+                while (!check2) {
+
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 0 || choice > 9) throw new Exception();
+                        check2 = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("Chỉ được nhập số");
+                        scanner.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("Chỉ được nhập số từ 0 --> 9");
+                    }
+                }
+
             choice = scanner.nextInt();
             switch (choice){
                 case 1:
@@ -99,10 +116,13 @@ public class MainReceipt {
                 case 9:
                     System.exit(0);
                     break;
+                }
+
             }
+
         }
 
-    }
+
     public static void main(String[] args) throws FileNotFoundException {
         menu();
     }

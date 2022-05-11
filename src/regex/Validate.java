@@ -26,7 +26,6 @@ public class Validate {
             }
         }while (true);
         return userName;
-
     }
 
     public String checkPassword(){

@@ -1,7 +1,7 @@
 id,nameRoom,Status,priceRoom,Number
-1,a,con,1000,2
-2,b,het,2000,3
-3,c,con,3000,2
-4,d,con,4000,1
-5,e,het,5000,2
-6,f,con,3500,4
+1,roomA,con,1000,2
+2,roomB,het,2000,3
+3,roomC,con,3000,2
+4,roomD,con,4000,1
+5,roomE,het,5000,2
+6,roomF,con,3500,4
