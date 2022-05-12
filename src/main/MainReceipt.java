@@ -8,6 +8,9 @@ import model.Room;
 
 import java.io.FileNotFoundException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -48,7 +51,7 @@ public class MainReceipt {
                     }
                 }
 
-            choice = scanner.nextInt();
+           
             switch (choice){
                 case 1:
                     managerReceipt.display();
@@ -62,6 +65,7 @@ public class MainReceipt {
                     System.out.println("Nhap thoi gian ket thuc ");
                     int endTime = scanner.nextInt();
                     scanner.nextLine();
+
                     System.out.println("Nhap ten nguoi cho thue");
                     String name= scanner.nextLine();
                     System.out.println("Nhap vao id room");

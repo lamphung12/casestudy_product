@@ -1,5 +1,8 @@
 package model;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Receipt {
     private int id;
     private int startTime;
@@ -71,11 +74,11 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return "Receipt: " +id+
-                "," + "startTime"+ startTime +
-                "," + "endTime"+endTime +
-                "," + "rentalAgentName"+ rentalAgentName +
-                "," + "idRoom" +room.getId() +
-                "," + "totalPrice" +totalRent;
+        return "Receipt: " + id +
+                "," + " startTime: "+ startTime +
+                "," + " endTime "+endTime +
+                "," + " rentalAgentName "+ rentalAgentName +
+                "," + " idRoom: " +room.getId() +
+                "," + "totalPrice: " +totalRent;
     }
 }

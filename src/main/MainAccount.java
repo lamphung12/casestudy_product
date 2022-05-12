@@ -38,10 +38,10 @@ public class MainAccount {
             switch (choice){
                 case 1:
                     System.out.println("Dang nhap");
-                    System.out.println("Nhap vào usn: ");
+                    System.out.println("Nhap usn: ");
                     scanner.nextLine();
                     String usn = scanner.nextLine();
-                    System.out.println("Nhập vào pass: ");
+                    System.out.println("Nhap pass: ");
                     String pass = scanner.nextLine();
                     if(managerAccount.login(usn,pass)==1){
                          choice =-1;
@@ -52,28 +52,28 @@ public class MainAccount {
                                  System.out.println("2.Doi pass");
                                  System.out.println("3.Them sua xoa tai khoan");
                                  System.out.println("4:Quay ve dang nhap");
+
+                                 System.out.println("Nhap vao lua chon");
                              }else{
                                  MainReceipt.menu();
                              }
+                             int choice1 = scanner.nextInt();
 
-                             System.out.println("Nhap vao lua chon");
-                               int choice1 = scanner.nextInt();
+//                             boolean check0 = false;
+//                             while (!check0) {
+//                                 try {
+////                                   choice1 = scanner.nextInt();
+//                                     if (choice1 < 0 || choice1 > 4) throw new Exception();
+//                                     check0 = true;
+//                                 } catch (InputMismatchException e) {
+//                                     System.out.println("Vui long nhap so");
+//                                     scanner.nextLine();
+//                                 } catch (Exception e) {
+//                                     System.out.println("Chỉ được nhập số từ 0 - 4");
+//                                 }
+//                             }
 
-                             boolean check0 = false;
-                             while (!check0) {
-                                 try {
-//                                   choice1 = scanner.nextInt();
-                                     if (choice1 < 0 || choice1 > 4) throw new Exception();
-                                     check0 = true;
-                                 } catch (InputMismatchException e) {
-                                     System.out.println("Vui long nhap so");
-                                     scanner.nextLine();
-                                 } catch (Exception e) {
-                                     System.out.println("Chỉ được nhập số từ 0 - 4");
-                                 }
-                             }
-
-//                               if (choice1 == 4) break;
+                               if (choice1 == 4) break;
                              switch (choice1){
                                  case 1:
                                      managerAccount.display();
@@ -100,15 +100,15 @@ public class MainAccount {
                                               System.out.println("Nhap userName ");
                                               String userName = validate.checkUserName();
 
-                                              System.out.println("Nhap passWord");
+//                                              System.out.println("Nhap passWord");
                                               String passWord = validate.checkPassword();
 
                                               System.out.println("Nhap vao Email");
-                                              String email = validate.checkEmail();
+                                              String email = scanner.nextLine();
 
 
                                               System.out.println("Nhap so dien thoai");
-                                              int number = validate.checkPhone();
+                                              int number = scanner.nextInt();
 
                                               Account acc = new Account(id, userName, passWord, email, number);
                                               managerAccount.add(acc);
@@ -122,9 +122,9 @@ public class MainAccount {
                                               int idSua = scanner.nextInt();
                                               scanner.nextLine();
                                               System.out.println("Nhap userName ");
-                                              String userNameSua = scanner.nextLine();
+                                              String userNameSua = validate.checkUserName();
                                               System.out.println("Nhap passWord");
-                                              String passWordSua = scanner.nextLine();
+                                              String passWordSua = validate.checkPassword();
                                               System.out.println("Nhap vao Email");
                                               String emailSua = scanner.nextLine();
                                               System.out.println("Nhap so dien thoai");
@@ -150,6 +150,16 @@ public class MainAccount {
                     System.out.println("Dang ky");
                     System.out.println("Nhap vao id");
                     int id= scanner.nextInt();
+//                    boolean check3 = false;
+//                    while (!check3) {
+//                        try {
+//                           id= scanner.nextInt();
+//                            check3 = true;
+//                        } catch (InputMismatchException e) {
+//                            System.out.println("Vui long nhap so");
+//                        }
+//                    }
+
                     scanner.nextLine();
                     System.out.println("Nhap vao userName");
                     String userName = scanner.nextLine();

@@ -7,7 +7,7 @@ public class Validate {
     Scanner sc= new Scanner(System.in);
     public static final String Username_Regex = "^\\w{3,7}$";
     public static final String Password_Regex = "^\\w{1,6}$";
-    public static final String Email_Regex = "^\\w+@\\w+\\.[A-Z]{2,4}$";
+    public static final String Email_Regex = "^[A-Za-z0-9]+@\\w+\\.[A-Z]{2,4}$";
     public static final String PhoneNumber_Regex = "^08+\\d{8}$";
 
     public Validate() {
